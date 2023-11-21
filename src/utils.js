@@ -26,3 +26,15 @@ export function createElement(name, props = {}, ...children) {
 
   return element;
 }
+
+// Генератор чисел
+export const codeGenerator = () => {
+  return codeGenerator.value ? ++codeGenerator.value : codeGenerator.value = 1;
+}
+
+//Плюрализация
+export const plural = ( value, locale = "ru-Ru" ) => {
+  let variants = { one: "раз", few: "раза", many: "раз"}
+  const key = new Intl.PluralRules(locale).select(value);
+  return variants[key]
+}
